@@ -4,24 +4,23 @@ class Repomon < Formula
   version "0.1.0"
   license "Apache-2.0"
 
-  on_arm do
+  # Per-arch prebuilt binaries: each architecture's archive has its own sha256.
+  if Hardware::CPU.arm?
     url "https://github.com/AliHamzaAzam/repomon/releases/download/v#{version}/repomon-#{version}-aarch64-apple-darwin.tar.gz"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000" # aarch64
-  end
-
-  on_intel do
+    sha256 "056ae2fb105b5d972c4c6485c5718769dededcfa3ff52b239b95d6a70580fa85" # aarch64
+  else
     url "https://github.com/AliHamzaAzam/repomon/releases/download/v#{version}/repomon-#{version}-x86_64-apple-darwin.tar.gz"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000" # x86_64
+    sha256 "3a19bb03759924409f571c76e2b8cc2318c5c8022b5af85411f925e107d67a9b" # x86_64
   end
-
-  depends_on :macos
-  depends_on "git"
-  depends_on "tmux"
 
   head do
     url "https://github.com/AliHamzaAzam/repomon.git", branch: "main"
     depends_on "rust" => :build
   end
+
+  depends_on "git"
+  depends_on :macos
+  depends_on "tmux"
 
   def install
     if build.head?
