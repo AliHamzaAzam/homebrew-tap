@@ -1,16 +1,16 @@
 class Repomon < Formula
-  desc "Mission control for parallel AI coding agents across many repos"
+  desc "Fleet control for parallel AI coding agents across many repos"
   homepage "https://github.com/AliHamzaAzam/repomon"
-  version "0.1.0"
+  version "0.2.0"
   license "Apache-2.0"
 
   # Per-arch prebuilt binaries: each architecture's archive has its own sha256.
   if Hardware::CPU.arm?
     url "https://github.com/AliHamzaAzam/repomon/releases/download/v#{version}/repomon-#{version}-aarch64-apple-darwin.tar.gz"
-    sha256 "056ae2fb105b5d972c4c6485c5718769dededcfa3ff52b239b95d6a70580fa85" # aarch64
+    sha256 "2938c4b845de1936601c15678ef05bf8011942103178712bea05623082ab0aa4" # aarch64
   else
     url "https://github.com/AliHamzaAzam/repomon/releases/download/v#{version}/repomon-#{version}-x86_64-apple-darwin.tar.gz"
-    sha256 "3a19bb03759924409f571c76e2b8cc2318c5c8022b5af85411f925e107d67a9b" # x86_64
+    sha256 "5a49650bea73c1ffc83a4689607e7823565eeb483dfc7310e2afd17177751fa5" # x86_64
   end
 
   head do
@@ -53,7 +53,7 @@ class Repomon < Formula
           brew services start repomon
       Don't also run `repomon daemon install`; pick one supervisor.
 
-      iOS companion bridge: `repomon remote enable`, then `repomon remote pair`.
+      Remote access bridge (open; iOS app coming): `repomon remote enable`, then `repomon remote pair`.
     EOS
   end
 
