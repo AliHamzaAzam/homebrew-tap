@@ -1,16 +1,16 @@
 class Repomon < Formula
   desc "Fleet control for parallel AI coding agents across many repos"
   homepage "https://github.com/AliHamzaAzam/repomon"
-  version "0.8.1"
+  version "0.9.0"
   license "Apache-2.0"
 
   # Per-arch prebuilt binaries: each architecture's archive has its own sha256.
   if Hardware::CPU.arm?
     url "https://github.com/AliHamzaAzam/repomon/releases/download/v#{version}/repomon-#{version}-aarch64-apple-darwin.tar.gz"
-    sha256 "c3612e2738f8e3ec21bff145f43dd283afd5173e7bc51c2f0f0eb827a5f18341" # aarch64
+    sha256 "0ea641b0e539267360f5887f39934913cd87e86bddd0bf571d2c303584fd0216" # aarch64
   else
     url "https://github.com/AliHamzaAzam/repomon/releases/download/v#{version}/repomon-#{version}-x86_64-apple-darwin.tar.gz"
-    sha256 "98bf3acd1605cbe8d812db68035aed2abd740fa751aa7618410dec5ce45fdaf0" # x86_64
+    sha256 "1247f849a762740104901f4f68aae3cb1688054025abab65f5406e12c6c824fd" # x86_64
   end
 
   head do
